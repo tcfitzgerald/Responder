@@ -835,7 +835,7 @@ def main():
         if ExtraPort != 0:
             threads.append(Thread(target=serve_thread_tcp, args=('', int(ExtraPort), HTTPProxyRelay,)))
         for thread in threads:
-            thread.setDaemon(True)
+            thread.daemon = True
             thread.start()
 
         while True:
